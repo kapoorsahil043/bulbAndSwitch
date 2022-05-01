@@ -1,0 +1,20 @@
+
+public class Bulb {
+    public static void main(String args[]) {
+        int[] a = new int[] { 2, 3, 1, 5, 4 };
+        int[] switches = new int[a.length];
+        int count = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            switches[a[i] - 1] = 1; // turn On switch
+            int sum = 0;
+            for (int j = a[i] - 1; j >= 0; j--) { // checking previous switches & taking sum
+                sum += switches[j];
+                if (sum == a[i]) {  // sum of switches should be equal to the position of bulb
+                    count++; 
+                }
+            }
+        }
+        System.out.println(count);
+    }
+}
